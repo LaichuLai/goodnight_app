@@ -36,7 +36,6 @@ group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
 
   gem 'rspec-rails'
-  gem 'rubocop', '~> 1.35', require: false
 end
 
 group :development do
@@ -58,6 +57,10 @@ group :test do
   gem 'webdrivers'
   gem 'factory_bot_rails'
   gem 'faker'
+  gem 'rubocop', '~> 1.35', require: false
+  gem 'rubocop-rails', '~> 2.14', '>= 2.14.2', require: false
+  gem "shoulda-matchers"
+
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
