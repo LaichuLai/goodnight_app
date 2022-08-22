@@ -4,8 +4,6 @@ rvm:
 install:
   - bundle install
   - nvm install 10
-  - npm i -g yarn
-  - yarn
 services:
   - postgresql
 script:
