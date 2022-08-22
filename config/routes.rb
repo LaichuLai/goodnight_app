@@ -1,3 +1,8 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  namespace :api, defaults: { format: :json} do
+    namespace :v1 do
+      get "/users", to: "users#index", as: :users
+      get "/users/:user_name", to: "users#show", as: :user
+    end
+  end
 end
