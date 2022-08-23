@@ -10,7 +10,7 @@ class Api::V1::UsersController < ApiController
   end
 
   def show
-    @user = User.find_by!(id: params[:id])
+    @user = User.find_by!(name: params[:name])
     render json: {
       name: @user.name,
       sleep_records: @user.sleep_records.order_by_created_time_desc.map do |record|

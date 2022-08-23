@@ -15,15 +15,4 @@ RSpec.describe "Api::V1::Users", type: :request do
       expect(response).to have_http_status(:success)
     end
   end
-
-  describe "GET /show" do
-    let!(:user) { FactoryBot.create(:user) }
-    before do
-      get "/api/v1/users/#{user.id}"
-    end
-
-    it "returns user data" do
-      expect(json["name"]).to eq(user.name)
-    end
-  end
 end
