@@ -2,6 +2,9 @@ class SleepRecord < ApplicationRecord
   belongs_to :user
 
   scope :order_by_created_time_desc, -> { order(created_at: :desc) }
+  scope :order_by_sleep_time_desc, -> { where(created_at: (1.weeks.ago)..(DateTime.now)).
+                                        where.not(sleep_time: nil).
+                                        order(sleep_time: :desc) }
 
   def count_sleep_time
     sleep_sec = Time.now - self.created_at
