@@ -60,7 +60,7 @@ group :test do
   gem 'rubocop', '~> 1.35', require: false
   gem 'rubocop-rails', '~> 2.14', '>= 2.14.2', require: false
   gem "shoulda-matchers"
-
+  gem 'database_cleaner-active_record'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
