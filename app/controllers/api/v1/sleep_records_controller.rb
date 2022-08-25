@@ -24,7 +24,7 @@ class Api::V1::SleepRecordsController < ApiController
   private
 
   def check_latest_record
-    @user = User.includes(:sleep_records).find_by!(name: params[:name])
+    @user = User.includes(:sleep_records).find_by!(id: params[:user_id])
     @latest_record = @user.sleep_records.last
   end
 end

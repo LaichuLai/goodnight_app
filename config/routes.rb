@@ -3,7 +3,7 @@ Rails.application.routes.draw do
     namespace :v1 do
       resources :users, only: [:index, :show] do
         member do
-          get :friends, :followers
+          get :friends
           get "/friends/:friend_id", to: "users#friend", as: :friend
         end
       end
