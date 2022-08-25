@@ -10,10 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_08_22_143748) do
+ActiveRecord::Schema.define(version: 2022_08_25_032232) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "friendships", force: :cascade do |t|
+    t.integer "follower_id", null: false
+    t.integer "friend_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "deleted_at"
+    t.index ["deleted_at"], name: "index_friendships_on_deleted_at"
+    t.index ["follower_id", "friend_id"], name: "index_friendships_on_follower_id_and_friend_id", unique: true
+    t.index ["follower_id"], name: "index_friendships_on_follower_id"
+    t.index ["friend_id"], name: "index_friendships_on_friend_id"
+  end
 
   create_table "sleep_records", force: :cascade do |t|
     t.bigint "user_id", null: false
