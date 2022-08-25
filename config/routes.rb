@@ -11,7 +11,8 @@ Rails.application.routes.draw do
       post "/sleep_records", to: "sleep_records#create", as: :create_sleep_records
       patch "/sleep_records", to: "sleep_records#update", as: :update_sleep_record
 
-      resources :friendships,       only: [:create, :update]
+      post "/friendships", to: "friendships#create", as: :create_friendships
+      delete "/friendships", to: "friendships#destroy", as: :destroy_sleep_record
     end
   end
 end

@@ -6,4 +6,13 @@ class User < ApplicationRecord
   has_many :followers, through: :follower_friendships, source: :follower
 
   validates :name, presence: true
+
+  def make_friend(friend)
+    friendships.create(friend_id: friend.id)
+  end
+
+  def unfriend(friend)
+    friendships.find_by!(friend_id: friend.id).destroy
+  end
+
 end
