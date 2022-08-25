@@ -6,7 +6,7 @@ RSpec.describe "Api::V1::SleepRecords", type: :request do
   describe "POST /create" do
     context "with valid parameters" do
       before do
-        post "/api/v1/sleep_records", params: { name: user.name }
+        post "/api/v1/sleep_records", params: { user_id: user.id }
       end
 
       it "create new user sleep record" do
@@ -20,7 +20,7 @@ RSpec.describe "Api::V1::SleepRecords", type: :request do
 
     context "with INVALID parameters" do
       before do
-        post "/api/v1/sleep_records", params: { name: "Jojo123" }
+        post "/api/v1/sleep_records", params: { user_id: 33456789 }
       end
 
       it "return error message" do
@@ -31,7 +31,7 @@ RSpec.describe "Api::V1::SleepRecords", type: :request do
     context "if user already start timing" do
       before do
         sleep_record
-        post "/api/v1/sleep_records", params: { name: user.name }
+        post "/api/v1/sleep_records", params: { user_id: user.id }
       end
 
       it "return current timing message" do
@@ -44,7 +44,7 @@ RSpec.describe "Api::V1::SleepRecords", type: :request do
     context "with valid parameters" do
       before do
         sleep_record
-        patch "/api/v1/sleep_records", params: { name: user.name }
+        patch "/api/v1/sleep_records", params: { user_id: user.id }
       end
 
       it "return good day message" do
@@ -55,7 +55,7 @@ RSpec.describe "Api::V1::SleepRecords", type: :request do
     context "with INVALID parameters" do
       before do
         sleep_record
-        patch "/api/v1/sleep_records", params: { name: "Jotaro123" }
+        patch "/api/v1/sleep_records", params: { user_id: 33456789 }
       end
 
       it "return error message" do
